@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="style.css">
+
     <title>Document</title>
 </head>
+
 <body>
-    
+    <div id="app">
+        <header>
+            <h1>¿Qué comemos hoy?</h1>
+            <p>Las mejores recetas del mundo en perfecto inglés.</p>
+        </header>
+        <main>
+            <div id="contBusca">
+                <form>
+                    <input type="text" name="busca" id="busca" placeholder="¿Qué comemos hoy?">
+                    <button id="btn-busca">Buscar</button>
+                </form>
+                <div id="resulBusca"></div>
+            </div>
+            <div id="contReceta">
+
+            </div>
+        </main>
+        <footer>
+            <p>Práctica Datos Abiertos - DWEC - 2º DAW - Sergio Gutiérrez Tejedor</p>
+        </footer>
+    </div>
+
+    <script src="./buscar.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,147 @@
+
+/*----RESET----*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*----ESTRUCTURA PRINCIPAL----*/
+body{
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    position: relative;
+}
+#app{
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    height: 95%;
+    width: 80%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+header{
+    width: 100%;
+    flex: 0 0 10%;
+    background-color: #aaa;
+}
+main{
+    width: 100%;
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+footer{
+    width: 100%;
+    flex: 0 0 10%;
+    background-color: #aaa;
+}
+
+/*----HEADER----*/
+header{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/*----SECCIÓN BÚSQUEDA----*/
+/*Global*/
+#contBusca{
+    flex: 0 0 26%;
+    height: 98%;
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*Formulario busqueda*/
+#contBusca>form{
+    width: 95%;
+    flex: 0 0 3rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#busca{
+    flex: 3 1 auto;
+    min-width: 4rem;
+    height: 80%;
+}
+#btn-busca{
+    flex: 1 0 auto;
+    height: 80%;
+}
+/*Contenedor búsquedas*/
+#resulBusca{
+    flex: 1 1 auto;
+    width: 95%;
+    margin: 1rem 0;
+    border: 1px solid grey;
+    overflow: hidden;
+}
+/*Cada receta*/
+.resul-receta{
+    width: 100%;
+    height: 4rem;
+    border: 1px solid grey;
+    background-size: cover;
+    position: relative;
+}
+.resul-receta::after {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: all 0.5s ease-in;
+}
+.resul-receta:hover::after {
+    opacity: 0;
+}
+.resul-receta>p{
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 2px 2px 2px #444;
+    text-align: center;
+    z-index: 2;
+}
+
+/*----SECCIÓN RECETA----*/
+#contReceta{
+    flex: 0 1 73%;
+    height: 98%;
+    border: 1px solid grey;
+}
+
+/*----FOOTER----*/
+footer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+footer>p{
+    text-align: center;
+}
