@@ -8,14 +8,19 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <title>Document</title>
+    <title>Práctica Open Data</title>
 </head>
 
 <body>
     <div id="app">
         <header>
-            <h1>¿Qué comemos hoy?</h1>
-            <p>Las mejores recetas del mundo en perfecto inglés.</p>
+            <div>
+                <img src="img/iconos/fork.svg" alt="Tenedor">
+                <div>
+                    <h1>¿Qué comemos hoy?</h1>
+                    <p>Las mejores recetas del mundo (en perfecto inglés)</p>
+                </div>
+            </div>
         </header>
         <main>
             <div id="contBusca">
@@ -24,10 +29,13 @@
                     <button id="btn-busca">Buscar</button>
                 </form>
                 <div id="resulBusca"></div>
+                <div id="pasoPagina">
+                    <img id="pagAnterior" src="img/iconos/back.svg" alt="Atrás">
+                    <span id="nPag"></span>
+                    <img id="pagSiguiente" src="img/iconos/next.svg" alt="Adelante">
+                </div>
             </div>
-            <div id="contReceta">
-
-            </div>
+            <div id="contReceta"></div>
         </main>
         <footer>
             <p>Práctica Datos Abiertos - DWEC - 2º DAW - Sergio Gutiérrez Tejedor</p>

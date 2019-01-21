@@ -11,7 +11,7 @@ if(isset($_GET["busca"])){
 // Si nos están pidiendo una receta
 if(isset($_GET["id"])){
     $idReceta = $_GET["id"];
-    $resulReceta = file_get_contents("http://food2fork.com/api/get?key=$claveUsuario&rId=$resulReceta");
-    echo $resulBusca;
+    $resulReceta = file_get_contents("http://food2fork.com/api/get?key=$claveUsuario&rId=$idReceta");
+    echo $resulReceta;
 }
 ?>
