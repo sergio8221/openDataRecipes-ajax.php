@@ -10,11 +10,19 @@ let elemPagSiguiente = document.getElementById('pagSiguiente');
 
 let elemContReceta = document.getElementById('contReceta');
 
+let elemListaCompra = document.getElementById('listaCompra');
+let elemCarrito = document.getElementById('carrito');
+let elemCerrarCarrito = document.getElementById('cerrarCarrito');
+let elemCestaVacia = document.getElementById('cestaVacia');
+let elemListaIngredientes = document.querySelector('#ingredientesCompra>ul');
+
 // Variables
 let buscaJSON; //JSON con la búsqueda actual
 let recetaJSON; //JSON con la receta actual
-let elemCargaBusca;
-let elemCargaReceta;
+let listaCompra = []; //Array con la lista de la compra
+let elemCargaBusca; //Gif carga búsqueda
+let elemCargaReceta; //Gif carga receta
+let elemIngredientes; //Elemento UL de ingredientes cargados
 cargarGifs(); // Precargamos los gifs de carga en las variables anteriores
 
 // Constantes
@@ -62,20 +70,34 @@ elemResulBusca.addEventListener('click', evt => {
 });
 
 // Evento pasar página
-elemPasoPagina.addEventListener('click', evt=>{
-    if(evt.target == elemPagSiguiente){
-        if(parseInt(elemNPag.innerText)<(buscaJSON.recipes.length/nBuscaPag)){
-            mostrarBusqueda(parseInt(elemNPag.innerText)+1);
+elemPasoPagina.addEventListener('click', evt => {
+    if (buscaJSON) { // Sólo si hay una búsqueda
+        if (evt.target == elemPagSiguiente) {
+            if (parseInt(elemNPag.innerText) < (buscaJSON.recipes.length / nBuscaPag)) {
+                mostrarBusqueda(parseInt(elemNPag.innerText) + 1);
+            }
         }
-    }
-    if(evt.target == elemPagAnterior){
-        if(parseInt(elemNPag.innerText)>1){
-            mostrarBusqueda(parseInt(elemNPag.innerText)-1);
+        if (evt.target == elemPagAnterior) {
+            if (parseInt(elemNPag.innerText) > 1) {
+                mostrarBusqueda(parseInt(elemNPag.innerText) - 1);
+            }
         }
     }
 });
 
-// Funciones
+// Evento abrir lista ingredientes
+elemCarrito.addEventListener('click', evt => {
+    elemListaCompra.style.width = '40%';
+    elemListaCompra.style.height = '500%';
+});
+
+// Evento cerrar lista ingredientes
+elemCerrarCarrito.addEventListener('click', evt => {
+    elemListaCompra.style.width = 0;
+    elemListaCompra.style.height = 0;
+});
+
+// ---------------FUNCIONES---------------------------
 function cargarGifs() {
     elemCargaBusca = new Image();
     elemCargaBusca.src = "./img/cargaBusca.gif";
@@ -140,6 +162,10 @@ function mostrarReceta() {
     recetaJSON.recipe.ingredients.forEach(ingrediente => {
         let ingItem = document.createElement('li');
         ingItem.innerText = ingrediente;
+        let comprar = new Image();
+        comprar.src = "./img/iconos/carrito.svg";
+        ingItem.appendChild(comprar);
+
         listaIngredientes.appendChild(ingItem);
     });
 
@@ -154,7 +180,7 @@ function mostrarReceta() {
     let enlaceReceta = document.createElement('a');
     enlaceReceta.href = recetaJSON.recipe.source_url;
     enlaceReceta.innerText = "Receta Original";
-    enlaceReceta.target= "_blank";
+    enlaceReceta.target = "_blank";
 
     pie.appendChild(comensales);
     pie.appendChild(enlaceReceta);
@@ -163,9 +189,40 @@ function mostrarReceta() {
     elemContReceta.appendChild(imagenReceta);
     elemContReceta.appendChild(listaIngredientes);
     elemContReceta.appendChild(pie);
+
+    // Añadimos el manejador de evento para comprar ingredientes
+    elemIngredientes = document.querySelector('#contReceta>ul');
+    elemIngredientes.addEventListener('click', evt => {
+        // Si es uno de los carritos de compra
+        if (evt.target.tagName == 'IMG') {
+            addCompra(evt.target.parentNode.innerText);
+        }
+    });
 }
 
-function calcularComensales(){
+function calcularComensales() {
     // Estimamos los comensales por el número de ingredientes
-    return Math.floor(recetaJSON.recipe.ingredients.length/3);
+    return Math.floor(recetaJSON.recipe.ingredients.length / 3);
+}
+
+function addCompra(ingrediente) {
+    listaCompra.push(ingrediente);
+
+    actualizarCompra();
+}
+
+// Repintar la lista de la compra
+function actualizarCompra() {
+    if (listaCompra.length > 0) {
+        elemCestaVacia.style.display = "none";
+        elemListaIngredientes.innerHTML = "";
+        listaCompra.forEach(ingrediente => {
+            ing = document.createElement('li');
+            ing.innerText = ingrediente;
+            elemListaIngredientes.appendChild(ing);
+        });
+    } else {
+        elemCestaVacia.style.display = "inline";
+        elemListaIngredientes.innerHTML = "";
+    }
 }

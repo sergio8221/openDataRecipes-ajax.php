@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/resultados.css">
+    <link rel="stylesheet" href="./css/receta.css">
 
     <title>Práctica Open Data</title>
 </head>
@@ -14,11 +16,22 @@
 <body>
     <div id="app">
         <header>
-            <div>
-                <img src="img/iconos/fork.svg" alt="Tenedor">
+            <div id="cabecera">
+                <img id="logo" src="img/iconos/fork.svg" alt="Tenedor">
                 <div>
                     <h1>¿Qué comemos hoy?</h1>
                     <p>Las mejores recetas del mundo (en perfecto inglés)</p>
+                </div>
+            </div>
+            <img id="carrito" src="img/iconos/carrito2.svg" alt="Comprar">
+            <div id="listaCompra">
+                <div id="cabeceraCompra">
+                    <p>Lista de la compra:</p>
+                    <img id="cerrarCarrito" src="./img/iconos/cerrar.svg" alt="Cerrar">
+                </div>
+                <div id="ingredientesCompra">
+                    <p id="cestaVacia">Tu lista está vacía</p>
+                    <ul></ul>
                 </div>
             </div>
         </header>
@@ -42,7 +55,7 @@
         </footer>
     </div>
 
-    <script src="./buscar.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>

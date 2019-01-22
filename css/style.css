@@ -1,0 +1,174 @@
+
+/*----FUENTES----*/
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
+/*----RESET----*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*----ESTRUCTURA PRINCIPAL----*/
+html,button,input{
+    font-family: 'Indie Flower', cursive;
+}
+
+body{
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(to bottom right, #FCFF68, #9BFF74);
+}
+#app{
+    height: 95%;
+    width: 80%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    overflow: hidden;
+    background: linear-gradient(-10deg, #F48982, #FBDB89 45%, #FBDB89 55%, #F48982);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(150,150,150,0.7);
+}
+header{
+    width: 100%;
+    flex: 0 0 12%;
+    position: relative;
+}
+main{
+    width: 100%;
+    height: 80%;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+footer{
+    width: 100%;
+    flex: 0 0 8%;
+}
+
+/*----HEADER----*/
+header{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+#cabecera{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+#logo{
+    padding: 0.3rem;
+    width: 8%;
+    display: block;
+    background: linear-gradient(to bottom right, #68FF9B, #B5E85E);
+    border-radius: 50%;
+    color: #fff;
+}
+#cabecera>div{
+    padding-left: 1rem;
+}
+#cabecera h1{
+    font-size: 2.8rem;
+}
+#cabecera p{
+    font-size: 1.2rem;
+}
+
+/*Lista compra*/
+#carrito{
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    transform: translateY(-50%);
+    width: 5%;
+    transition: width 0.2s ease-out;
+}
+#carrito:hover{
+    width: 7%;
+    cursor: pointer;
+}
+#listaCompra{
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    right: 6%;
+    /* width: 40%;
+    height: 500%; */
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: linear-gradient(to bottom right, #FCFF68, #9BFF74);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(150,150,150,0.7);
+    transition: all 0.2s ease-out;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+#cabeceraCompra{
+    flex: 0 0 10%;
+    margin: 0 1rem 0.5rem 1rem;
+    border-bottom: #F48982 solid 1px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#cabeceraCompra>p{
+    font-size: 1.2rem;
+    color: #F48982;
+}
+#cabeceraCompra>img{
+    width: 2rem;
+    transition: width 0.2s ease-out;
+    cursor: pointer;
+}
+#cabeceraCompra>img:hover{
+    width: 2.3rem;
+}
+#ingredientesCompra{
+    flex: 1 1 auto;
+    overflow-y: auto;
+    margin: 0.5rem 1rem;
+}
+#ingredientesCompra>ul{
+    font-size: 1.2rem;
+    color: #F48982;
+    list-style: disc;
+    list-style-position: inside;
+}
+#cestaVacia{
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #F48982;
+}
+
+/*----FOOTER----*/
+footer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+footer>p{
+    color: #666;
+    text-align: center;
+    font-size: 1.2rem;
+}

@@ -1,0 +1,140 @@
+/*----SECCIÓN RECETA----*/
+
+/*Global*/
+#contReceta{
+    flex: 1 1 60%;
+    height: 98%;
+    overflow: hidden;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+#carga-receta{
+    width: 50%;
+    display: block;
+    margin: auto;
+}
+/*Cabecera*/
+#imagenReceta{
+    margin: 1.3rem;
+    border-radius: 1rem;
+    background-size: cover;
+    height: 30%;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: #fff;
+    text-shadow: 2px 2px 2px #444;
+    padding-right: 1.5rem;
+    padding-bottom: 1rem;
+    /* filter: blur(3px); */
+    position: relative;
+    overflow: hidden;
+}
+#imagenReceta::after{
+    content:"";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+}
+#imagenReceta h2{
+    /* font-size: 4rem; */
+    font-size: 3vw;
+    margin-bottom: 0.5rem;
+    text-align: right;
+    z-index: 2;
+}
+#imagenReceta>span{
+    font-size: 1vw;
+    z-index: 2;
+}
+#imagenReceta a{
+    margin-left: 1rem;
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.2rem 1rem;
+    border-radius: 1rem;
+    background: linear-gradient(to bottom right, #68FF9B, #B5E85E);
+    text-shadow: none;
+    transition: all 0.2s ease-out;
+}
+#imagenReceta a:hover{
+    padding: 0.2rem 2rem; 
+}
+/*Ingredientes*/
+#contReceta>ul{
+    flex: 1 1 auto;
+    overflow-y: auto;
+    margin-left: 1.3rem;
+    list-style: circle;
+    list-style-position: inside;
+    color: #555;
+    font-size: 1.2vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+#contReceta>ul>li{
+    width:50%;
+}
+#contReceta li>img{
+    width: 1.2rem;
+    margin-left: 0.5rem;
+    transition: all 0.4s ease-out;
+}
+#contReceta li>img:hover{
+    transform: rotateX(360deg);
+    cursor: pointer;
+}
+
+/*Pie*/
+#pieReceta{
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+#pieReceta>p{
+    flex: 1 1 auto;
+    font-size: 1.2vw;
+    margin-left: 1.3rem;
+    color: #fff;
+}
+#pieReceta>p::before{
+    content: " ";
+    background-image: url("../img/iconos/servings.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+}
+#pieReceta>a{
+    flex: 0 0 auto;
+    margin: 1rem 1.3rem 1rem auto;
+    font-size: 1vw;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.2rem 1rem;
+    border-radius: 1rem;
+    background: linear-gradient(to bottom right, #68FF9B, #B5E85E);
+    box-shadow: 0.2rem 0.2rem 0.2rem rgba(150,150,150,0.7);
+    text-shadow: none;
+    transition: all 0.2s ease-out;
+}
+#pieReceta>a:hover{
+    padding: 0.2rem 2rem;
+}
